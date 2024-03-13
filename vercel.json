@@ -1,0 +1,43 @@
+{
+  "builds": [
+    {
+      "src": "index.js",
+      "use": "@vercel/node"
+    },
+    {
+      "src": "build/**",
+      "use": "@vercel/static"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/",
+      "dest": "index.js"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "index.js"
+    },
+    {
+      "src": "/",
+      "dest": "build/index.html"
+    },
+    {
+      "src": "/auth",
+      "dest": "build/index.html"
+    },
+    {
+      "src": "forgot-password",
+      "dest": "build/index.html"
+    },
+    {
+      "src": "/verify-email",
+      "dest": "build/index.html"
+    },
+
+    {
+      "src": "/(.+)",
+      "dest": "build/$1"
+    }
+  ]
+}
